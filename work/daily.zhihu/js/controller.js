@@ -16,7 +16,7 @@ ctrl.controller("c",function ($scope) {
 })
 ctrl.controller("latest",function ($scope,$http) {
     $http({
-        url:"php/api.php?url=http://news-at.zhihu.com/api/4/news/latest",
+        url:"php/api.php?url=https://news-at.zhihu.com/api/4/news/latest",
         method:"get",
         responseType:"json"
     }).then(function (res) {
@@ -26,7 +26,7 @@ ctrl.controller("latest",function ($scope,$http) {
 // debugger
 ctrl.controller("themes",function ($scope,$http,$routeParams) {
     $http({
-        url:"php/api.php?url=http://news-at.zhihu.com/api/4/themes",
+        url:"php/api.php?url=https://news-at.zhihu.com/api/4/themes",
         method:"get",
         responseType:"json"
     }).then(function (res) {
@@ -35,7 +35,7 @@ ctrl.controller("themes",function ($scope,$http,$routeParams) {
 })
 ctrl.controller("show",function ($scope,$http,$routeParams) {
     $http({
-        url:"php/api.php?url=http://news-at.zhihu.com/api/4/news/"+$routeParams.id,
+        url:"php/api.php?url=https://news-at.zhihu.com/api/4/news/"+$routeParams.id,
         method:"get",
         responseType:"json"
     }).then(function (res) {
@@ -45,7 +45,7 @@ ctrl.controller("show",function ($scope,$http,$routeParams) {
 })
 ctrl.controller("themeList",function ($scope,$http,$routeParams) {
     $http({
-        url:"php/api.php?url=http://news-at.zhihu.com/api/4/theme/"+$routeParams.id,
+        url:"php/api.php?url=https://news-at.zhihu.com/api/4/theme/"+$routeParams.id,
         method:"get",
         responseType:"json"
     }).then(function (res) {
