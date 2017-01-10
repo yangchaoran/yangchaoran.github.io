@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52cd5844-e0ff-4160-a3a7-d798862c7765" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/index.css" afterPath="$PROJECT_DIR$/src/css/index.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dirst/a-compiled.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dirst/a-compiled.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dirst/a.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
     </list>
     <ignored path="yangchaoran.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,35 +27,7 @@
     <favorites_list name="yangchaoran.github.io" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="a.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dirst/a.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-92649">
-              <caret line="27144" column="94" selection-start-line="27144" selection-start-column="94" selection-end-line="27144" selection-end-column="94" />
-              <folding>
-                <marker date="1484019049421" expanded="true" signature="400520:400599" ph="/** This helper class stores information about text content of a target node, ...*/" />
-                <marker date="1484019049421" expanded="true" signature="400520:931418" ph="[...]" />
-                <marker date="1484019049421" expanded="true" signature="810571:810575" ph="/** Copyright 2013-present, Facebook, Inc. ...*/" />
-                <marker date="1484019049421" expanded="true" signature="810571:810578" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-              <folding>
-                <element signature="n#style#0;n#video#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -170,9 +145,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="745" extended-state="1" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -210,12 +185,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-92649">
           <caret line="27144" column="94" selection-start-line="27144" selection-start-column="94" selection-end-line="27144" selection-end-column="94" />
-          <folding>
-            <marker date="1484019049421" expanded="true" signature="400520:400599" ph="/** This helper class stores information about text content of a target node, ...*/" />
-            <marker date="1484019049421" expanded="true" signature="400520:931418" ph="[...]" />
-            <marker date="1484019049421" expanded="true" signature="810571:810575" ph="/** Copyright 2013-present, Facebook, Inc. ...*/" />
-            <marker date="1484019049421" expanded="true" signature="810571:810578" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -223,9 +193,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#video#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>

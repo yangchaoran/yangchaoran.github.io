@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            width:1000px;
+            height:auto;
+            background: #000;
+            margin:0 auto;
+            color: #fff;
+            border:1px solid #000;
+        }
+        .controlbar{
+            width: 100px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: baseline;
+            flex-direction: column;
+            float: left;
+
+        }
+        canvas{
+            display: block;
+            background: #fff;
+
+        }
+        .control{
+            width:100px;
+            height:auto;
+            float: right;
+          
+        }
+        label{
+            width:100px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="controlbar">
+        <select name="" id="typechoose">
+            <option value="rect">矩形</option>;
+            <option value="circle">圆形</option>;
+            <option value="line">线</option>;
+            <option value="polygon">多边形</option>
+        </select>
+
+        <label>
+            样式
+            <select  id="style">
+                <option value="stroke">Stroke</option>
+                <option value="fill">Fill</option>
+            </select>
+        </label>
+        <label>
+            填充色<input type="color" id="color">
+        </label>
+        <label>
+            多边形变数
+            <input type="number" id="number" min="3">
+        </label>
+
+        <label>
+            线宽 <input type="text" id="linewidth">
+        </label>
+    </div>
+    <div class="control">
+        <label>
+            铅笔<input type="checkbox" id="pencil">
+        </label>
+        <label>
+            剪切<input type="checkbox" id="cut">
+        </label>
+        <label >
+            复制<input type="checkbox"  id="copy">
+        </label>
+        <label>
+            橡皮<input type="checkbox" id="eraser">
+        </label>
+            <label class="new">新建</label>
+            <label class="back">撤销</label>
+            <label class="save">保存</label>
+            <label class="kong">清空</label>
+    </div>
+
+    <canvas width="800" height="600"></canvas>
+</div>
+</body>
+<script src="draw.js"></script>
+<script>
+    var canvas=document.querySelector("canvas"),
+            cobj=canvas.getContext("2d"),type="rect",
+            color=document.querySelector("#color"),
+            style=document.querySelector("#style"),
+            number=document.querySelector("#number"),
+            pencil=document.querySelector("#pencil"),
+            eraser=document.querySelector("#eraser"),
+            cut=document.querySelector("#cut"),
+            copy=document.querySelector("#copy"),
+            create=document.querySelector("#create"),
+            checkboxs=document.querySelectorAll("[type=checkbox]"),
+            linewidth=document.querySelector("#linewidth"),
+            typechoose=document.querySelector("#typechoose");
+    typechoose.onchange=function () {
+        type=this.value;
+    };
+    var drawcolor;
+    color.onchange=function () {
+        drawcolor=this.value;
+    };
+    var drawstyle;
+    style.onchange=function () {
+        drawstyle=this.value;
+    }
+    var drawwidth;
+    linewidth.onchange=function () {
+        drawwidth=this.value;
+
+    }
+    var drawnumber=3;
+    number.onchange=function () {
+        cancelChecked();
+        drawnumber=this.value;
+        console.log(drawnumber)
+    }
+    pencil.onchange=function () {
+        if(this.checked){
+            cancelChecked();
+            this.checked=true;
+            type="pencil";
+        }else {
+            this.checked=false;
+            type=typechoose.value;
+        }
+    }
+    //    橡皮
+    eraser.onchange=function () {
+        if(this.checked){
+            cancelChecked();
+            this.checked=true;
+            type="eraser";
+            canvas.style.cursor='url("eraser.jpg"),default';
+        }else {
+            this.checked=false;
+            type=typechoose.value;
+        }
+    }
+
+    //    剪切
+    var cutflag=false;
+    cut.onchange=function () {
+        if(this.checked){
+            cancelChecked();
+            this.checked=true;
+            type="cut";
+        }else {
+            this.checked=false;
+            type=typechoose.value;
+        }
+    }
+    var iscopy=false;
+    copy.onchange=function () {
+        if(this.checked){
+            cancelChecked();
+            this.checked=true;
+            type="copy";
+        }else {
+            this.checked=false;
+            type=typechoose.value;
+        }
+    }
+    function cancelChecked() {
+        for(i=0;i<checkboxs.length;i++){
+            checkboxs[i].checked=false;
+            canvas.style.cursor="default";
+            //iscopy=false;
+        }
+    }
+    //    鼠标操作
+    var ox,oy,ow,oh, arr=[];
+    var lox,loy,low,loh,step=0,cutdata,copyflag=false;
+    canvas.onmousedown=function (e) {
+        ox=e.offsetX;
+        oy=e.offsetY;
+        var draw=new Draw(cobj,{color:drawcolor,type:drawstyle,width:drawwidth,poly:drawnumber});
+        //cobj.stroke();
+        if(type=="pencil"){
+            cobj.beginPath();
+            cobj.moveTo(ox,oy);
+        }
+        if(copy.checked==true&&copyflag==true){
+            arr.pop();
+            copyflag=false;
+        }
+// 鼠标移动事件
+        canvas.onmousemove=function (e) {
+            ow=e.offsetX;
+            oh=e.offsetY;
+//        不触发橡皮功能时，清理整个画布，但保留清理之前所有画布信息
+            if(type!="eraser"){
+                cobj.clearRect(0,0,800,400)
+                if(arr.length!=0){
+                    cobj.putImageData(arr[arr.length-1],0,0,0,0,800,400);
+                }
+            }
+//      cut
+            if(step==1&&type=="cut"){
+                var nx=lox+ow-ox,ny=loy+oh-oy;
+//            step=0;
+                if(copy.checked==false){
+                    cobj.clearRect(lox-1,loy-1,low-lox+2,loh-loy+2);
+                }else {
+                    cobj.putImageData(cutdata,nx,ny);
+                }
+
+//            debugger;
+            }else if(type=="pencil"){
+                draw[type](ox,oy,ow,oh)
+            }else if(type=="copy"&&copyflag==true){
+                arr.pop();
+            }
+            else {
+                draw[type](ox,oy,ow,oh);
+            }
+        }
+        canvas.onmouseup=function () {
+            canvas.onmousemove=null;
+            canvas.onmouseup=null;
+//            触发cut之后，将剪切区域的数据保存在cutdata中；
+            if(type=="cut"&&step==0){
+                step=1;
+                cutdata=cobj.getImageData(ox+1,oy+1,ow-ox-2,oh-oy-2);
+                lox=ox;loy=oy;low=ow;loh=oh;
+            }else if(step==1){
+                step=0;
+            }
+
+            arr.push(cobj.getImageData(0,0,800,400));
+        }
+    }
+</script>
+</html>

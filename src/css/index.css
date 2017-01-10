@@ -1,4 +1,224 @@
 /*bgv*/
+
+@media screen and (min-width: 1200px){
+    .nav {
+        /*display: block;*/
+        height: 70px;
+    }
+    .nav ul {
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+    }
+    .nav ul li a {
+        display: block;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: .1rem;
+        padding: .1rem .2rem .1rem .2rem;
+        white-space: nowrap;
+    }
+    .front, .back {
+        display: block;
+
+        width: 100%;
+
+        height: 100%;
+
+        position: absolute;
+
+        top: 0;
+
+        left: 0;
+
+        background: #eee;
+        padding: .1rem .2rem .1rem .2rem;
+        color: #055451;
+
+        -webkit-pointer-events: none;
+
+        -moz-pointer-events: none;
+
+        -ms-pointer-events: none;
+
+        -o-pointer-events: none;
+
+        pointer-events: none;
+
+        -webkit-box-sizing: border-box;
+
+        box-sizing: border-box;
+    }
+    .mainRight{
+        height: 100%;
+        width: 60%;
+        float: right;
+        margin: 20px;
+    }
+    .mainRight article{
+        padding-left: 20px;
+        font-size:20px;
+    }
+    .mainRight button{
+        margin: 20px auto;
+        display: block;
+        background: transparent;
+        border: 1px solid;
+        border-radius: 2px;
+        width: 1rem;
+        height: 0.4rem;
+    }
+    .mainRight button a{
+        text-decoration: none;
+        color: #000;
+    }
+    .me{
+        display: block;
+        height: auto;
+        /*margin: 50px 0 0 33%;*/
+        padding: 0 40px 0 60px;
+    }
+    .contact{
+        display: block;
+        position: relative;
+        width: 30%;
+        height: 100%;
+    }
+    .contact h2{
+        background: url(../img/contact_me_cn.png) left top no-repeat;
+        background-size: 100% auto;
+        z-index: 500;
+        text-align: center;
+    }
+    .contact h3{
+        background: url(../img/contact_me_en.png) left top no-repeat;
+        background-size: 100% auto;
+        z-index: 300;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 735px){
+
+}
+@media screen and (max-width: 720px){
+    #box {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .main{
+        text-align: center;
+        padding:0 !important;
+    }
+    .container{
+        padding:0;
+        margin:0;
+    }
+    .mainLeft{
+        /*margin-top: 3rem;*/
+    }
+    .mark video {
+        width:auto !important;
+        height:100%!important;
+    }
+    .nav{
+        height: 1rem;
+    }
+    .nav ul{
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+
+    }
+    .nav ul li a{
+        font-size:.4rem;
+    }
+    .front, .back {
+        display: none;
+    }
+    .mainRight{
+        width: 100%;
+        margin: 1rem auto;
+    }
+    .mainRight article{
+        display: none;
+    }
+    .content{
+        margin-top: 1rem;
+    }
+    .list li{
+        width: 100%!important;
+        height: 2rem!important;
+    }
+    .list li a{
+        color: #000 !important;
+        display: block;
+        border-radius: 5px;
+        line-height: 2rem!important;
+    }
+    .mainRight button{
+        margin: 2em auto;
+        width: 2rem;
+        height: 1rem;
+        border-radius: .2rem;
+    }
+    .me{
+        margin:0 auto;
+
+    }
+    .me h2{
+        font-size:.1rem;
+    }
+    .contact h2{
+        font-size:.2rem;
+    }
+    .contact h3{
+        font-size:10px;
+    }
+    .contact{
+        text-align: center;
+    }
+    .mainRight button a{
+        color: #fff;
+    }
+    /*.minNav{*/
+        /*display: block!important;*/
+        /*width:100%;*/
+        /*height:1rem;*/
+        /*position: fixed;*/
+        /*left:0;*/
+        /*top:0;*/
+        /*background: #30313a;*/
+        /*z-index: 999;*/
+    /*}*/
+    /*.minNav ul{*/
+        /*display: flex;*/
+        /*justify-content: space-between;*/
+        /*flex-flow:row nowrap;*/
+    /*}*/
+    /*.minNav ul li{*/
+        /*width:25%;*/
+    /*}*/
+    /*.minNav ul li a {*/
+        /*width:25%;*/
+        /*height:100%;*/
+        /*display: block;*/
+        /*white-space: nowrap;*/
+        /*text-align: center;*/
+        /*line-height: 1rem;*/
+        /*color: #fff;*/
+    /*}*/
+}
+@media screen and (max-width: 960px){
+.mark{
+    height:667px;
+}
+}
 body, html {
     height: 100%;
 }
@@ -23,29 +243,6 @@ body, html {
     width: 100%;
     padding: 20px;
 }
-
-nav {
-    height: 70px;
-
-}
-
-.nav ul {
-    width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-}
-
-.nav ul li a {
-    display: block;
-    text-align: center;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 20px;
-    padding: 15px 30px 15px 31px;
-}
-
 .three-d {
     -webkit-perspective: 200px;
 
@@ -160,7 +357,6 @@ nav {
 }
 
 .back {
-
     -webkit-transform: rotatex(-90deg) translatez(25px);
 
     -moz-transform: rotatex(-90deg) translatez(25px);
@@ -168,71 +364,31 @@ nav {
     -ms-transform: rotatex(-90deg) translatez(25px);
 
     -o-transform: rotatex(-90deg) translatez(25px);
-
     transform: rotatex(-90deg) translatez(25px);
-
-    color: #FFE7C4;
-
-}
-
-.front, .back {
-
-    /*          border:1px solid red;*/
-
-    display: block;
-
-    width: 100%;
-
-    height: 100%;
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    background: #eee;
-    padding: 15px 30px 15px 31px;
-    color: #055451;
-
-    -webkit-pointer-events: none;
-
-    -moz-pointer-events: none;
-
-    -ms-pointer-events: none;
-
-    -o-pointer-events: none;
-
-    pointer-events: none;
-
-    -webkit-box-sizing: border-box;
-
-    box-sizing: border-box;
-
+    color: #79cb65;
 }
 
 /*index*/
+.content{
+    padding:.2rem;
+}
 .main{
     height:100%;
     overflow: hidden;
-    padding:100px;
+    padding:1rem;
 }
 .mainLeft{
     float: left;
     height:100%;
 }
-.mainRight{
-    height: 100%;
-    width: 60%;
-    float: right;
-    margin: 20px;
+.mainLeft h2{
+    font-size: .4rem;
 }
-.mainRight article{
-    padding-left: 20px;
-    font-size:20px;
+.mainLeft h3{
+    font-size: .3rem;
 }
 .inner{
-    height:500px;
+    height:5rem;
 }
 .list{
     display: flex;
@@ -241,7 +397,7 @@ nav {
 }
 .list li{
     width:25%;
-    height:150px;
+    height:1rem;
     /*background: #000;*/
     border:1px solid #fff;
     border-radius:10px;
@@ -249,7 +405,8 @@ nav {
 }
 .list li a{
     color: #fff;
-    text-align: center;line-height:150px;
+    text-align: center;
+    line-height:1rem;
 }
 /*contact*/
 #about{
@@ -258,55 +415,15 @@ nav {
     display: flex;
     justify-content: flex-start;
     flex-flow: row wrap;
-        margin: 50px 0;
-}
-.contact{
-    display: block;
-    position: relative;
-    width: 30%;
-    height: 100%;
-}
-.contact h2{
-    background: url(../img/contact_me_cn.png) left top no-repeat;
-    background-size: 100% auto;
-    z-index: 500;
-    text-align: center;
-}
-.contact h3{
-    background: url(../img/contact_me_en.png) left top no-repeat;
-    background-size: 100% auto;
-    z-index: 300;
-    text-align: center;
-}
-.me{
-    display: block;
-    height: auto;
-    margin: 50px 0 0 33%;
-    padding: 0 40px 0 60px;
-}
-.mainRight button{
-    margin: 20px auto;
-    display: block;
-    background: transparent;
-    border: 1px solid;
-    border-radius: 2px;
-    width: 100px;
-    height: 40px;
-}
-.mainRight button a{
-    text-decoration: none;
-    color: #000;
-}
-.pic{
-    width:200px;
-    height:200px;
-    border-radius:50%;
-    background: url(../img/me.png)left top/cover;
-    margin: 0 auto;
+    margin: 50px 0;
 }
 .minNav{
     display: none;
 }
-.progress{
-    display: none !important;
+.pic{
+    width:1rem;
+    height:1rem;
+    border-radius:50%;
+    background: url(../img/me.png)left top/cover;
+    margin: 0 auto;
 }

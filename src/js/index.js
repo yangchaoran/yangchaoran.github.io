@@ -1,21 +1,20 @@
-var ReactRouter=require('react-router');
-var React=require('react');
-var ReactDOM=require('react-dom');
+var ReactRouter = require('react-router');
+var React = require('react');
+var ReactDOM = require('react-dom');
 console.log(ReactRouter);
-var Router=ReactRouter.Router;
-var Route=ReactRouter.Route;
-var Link=ReactRouter.Link;
-var IndexRoute=ReactRouter.IndexRoute;
-var IndexLink=ReactRouter.IndexLink;
-var hashHistory=ReactRouter.hashHistory;
-class App extends React.Component{
-    constructor(props){
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+var Link = ReactRouter.Link;
+var IndexRoute = ReactRouter.IndexRoute;
+var IndexLink = ReactRouter.IndexLink;
+var hashHistory = ReactRouter.hashHistory;
+class App extends React.Component {
+    constructor(props) {
         super(props);
     }
-    render(){
-        return(
-            <section className="container">
-                {/*<span className="headline">超然说</span>*/}
+    render() {
+        return (
+            <section>
                 <nav className="nav">
                     <ul>
                         <li>
@@ -54,6 +53,30 @@ class App extends React.Component{
                         </li>
                     </ul>
                 </nav>
+                <div className="minNav">
+                    <ul>
+                        <li>
+                            <Link to="/">
+                                首页
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/prod" >
+                                作品
+
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/note" >笔记
+
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/about" >简历
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
                 <div className="content">
                     {this.props.children}
                 </div>
@@ -61,60 +84,44 @@ class App extends React.Component{
         )
     }
 }
-class Product extends  React.Component{
-    constructor(props){
+class Product extends React.Component {
+    constructor(props) {
         super(props);
     }
-    render(){
-        return(
+
+    render() {
+        return (
             <div className="inner">
-                <ul className="list">
-                    <li>
-                        {/*<Link to="/game">*/}
-                        {/**/}
-                        {/*</Link>*/}
-                        <a href="work/game/index.html">
-                            <div className="entry">跑酷游戏</div>
+                <ul className="list col-md-12 col-sm-12 col-sm-12">
+
+                    <li className="col-md-4 col-sm-6 col-xs-12">
+                        <a href="work/dailyweb/index.html">
+                            <div className="entry">移动端新闻web应用</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="work/todo/index.html">
-                            <div className="entry">ToDoList</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="work/saolei/index.html">
-                            <div className="entry">扫雷游戏</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="work/linfen/index.html">
-                            <div className="entry">移动端网页</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="work/icloud/index.html">
-                            <div className="entry">icloud提醒事项</div>
-                        </a>
-                    </li>
-                    <li>
+                    <li className="col-md-4 col-sm-6 col-xs-12">
                         <a href="work/daily.zhihu/index.html">
                             <div className="entry">新闻类web</div>
                         </a>
                     </li>
-                    <li>
+                    <li className="col-md-4 col-sm-6 col-xs-12">
+                        <a href="work/icloud/index.html">
+                            <div className="entry">icloud提醒事项</div>
+                        </a>
+                    </li>
+                    <li className="col-md-4 col-sm-6 col-xs-12">
                         <a href="work/pick/index.html">
                             <div className="entry">画板</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="/work/hangteng/index.html">
-                            <div className="entry">欢腾鞋业项目</div>
+                    <li className="col-md-4 col-sm-6 col-xs-12">
+                        <a href="work/saolei/index.html">
+                            <div className="entry">扫雷游戏</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="work/phpcms/index.html">
-                            <div className="entry">千禧酒店项目</div>
+                    <li className="col-md-4 col-sm-6 col-xs-12">
+                        <a href="work/todo/index.html">
+                            <div className="entry">ToDoList</div>
                         </a>
                     </li>
                 </ul>
@@ -122,24 +129,25 @@ class Product extends  React.Component{
         )
     }
 }
-class M extends  React.Component{
-    constructor(props){
+class M extends React.Component {
+    constructor(props) {
         super(props);
     }
-    render(){
-        return(
+    render() {
+        return (
             <section className="main">
-                <div className="mainLeft">
-                    <h2>我是<h1>杨超</h1></h2>
-                    <h2>职业：前端攻城狮</h2>
-                    <h3>写的更少，做的更多</h3>
+
+                <div className="mainLeft col-md-4 col-sm-10 col-xs-12">
+                    <h1 className="col-md-12 col-sm-10 col-xs-12">杨超</h1>
+                    <p className="col-md-12 col-sm-10 col-xs-12">职业：前端攻城狮</p>
+                    <p className="col-md-12 col-sm-10 col-xs-12">目标：写的更少，做的更多</p>
                 </div>
                 <div className="mainRight">
                     <article>
                         前端，在整个星球是一种神奇的存在。他以各种技术加持，以一百多个键为武器，将不同尺寸的屏幕作为画板，用二进制衍生的代码将所有目光吸引。他们正在悄无声息的改变这个世界的审美。
                     </article>
-                    <button>
-                        <a href="work/resume/resume.html">了解更多</a>
+                    <button type="button" className="btn btn-primary">
+                        <a href="work/resume/resume.html">更多</a>
                     </button>
                 </div>
             </section>
@@ -147,51 +155,66 @@ class M extends  React.Component{
         )
     }
 }
-class Note extends  React.Component{
-    constructor(props){
+class Note extends React.Component {
+    constructor(props) {
         super(props);
     }
-    render(){
-        return(
+
+    render() {
+        return (
             <ul>
                 <li>笔记一</li>
                 <li>笔记一</li>
                 <li>笔记一</li>
                 <li>笔记一</li>
-
             </ul>
         )
     }
 }
-class About extends  React.Component{
-    constructor(props){
+class About extends React.Component {
+    constructor(props) {
         super(props);
     }
-    render(){
-        return(
-           <div id="about">
-                <div className="contact">
-                    <div className="pic"></div>
-                    <h2>联系我</h2>
-                    <h3>Contact Me</h3>
+    render() {
+        return (
+            <div id="about">
+                <div className="contact container">
+                    <div className="row">
+                        <div className="col-md-8">
+                            <div className="pic "></div>
+                            <h2>联系我</h2>
+                            <h3>Contact Me</h3>
+                        </div>
+                    </div>
                 </div>
-               <div className="me">
-                   <h2>联系方式：<span>18435705665</span></h2>
-                   <h2>邮箱：     <span>yangchao3247@outlook.com</span></h2>
-                   <h2>微信：     <span>335740780</span></h2>
-               </div>
-           </div>
+
+                <div className="me container">
+                    <div className="row">
+                        <div className="progress col-sm-12 col-xs-12">
+                            <div className="progress-bar progress-bar-success progress-bar-striped active" >
+                                <span className="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                        <h2>联系方式：<span>18435705665</span></h2>
+                        <h2>邮箱： <span>yangchao3247@outlook.com</span></h2>
+                        <h2>微信： <span>335740780</span></h2>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
-class Index extends React.Component{
-    constructor(props){
+class Index extends React.Component {
+    constructor(props) {
         super(props);
     }
-    render(){
-        return(
+
+    render() {
+        return (
             <section className="main">
-                <h1>我是<mark>杨超</mark></h1>
+                <h1>我是
+                    <mark>杨超</mark>
+                </h1>
                 <span>职业：前端工程师</span>
                 <span>写的更少，做的更多</span>
             </section>
@@ -213,5 +236,5 @@ ReactDOM.render(
             </Route>
         </Route>
     </Router>
-,document.querySelector("#box"))
+    , document.querySelector("#box"))
 console.log(<App />)
