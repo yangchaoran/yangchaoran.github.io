@@ -6,7 +6,7 @@ app.config(["$routeProvider",function ($r) {
     }).when("/show/:id",{
         templateUrl:"tpls/show.html",
         controller:"show"
-    }).when("/themes:id",{
+    }).when("/theme/:id",{
         templateUrl:"tpls/theme.html",
         controller:"themes"
     })
@@ -19,4 +19,9 @@ app.directive("hello",function () {
         scope:true
     }
 })
-
+var swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: '.swiper-pagination',
+    loop:true
+})
+console.log(swiper)

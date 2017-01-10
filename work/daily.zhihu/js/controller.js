@@ -1,15 +1,15 @@
 var ctrl=angular.module("ctrl",[]);
 ctrl.controller("c",function ($scope) {
     var n=1;
-    $scope.f=false;
-    //document.querySelector(".banner").style.display="block";
+    // $scope.f=false;
+    // document.querySelector(".banner").style.display="block";
     $scope.left=function () {
         n++;
         if(n%2==0){
-            $scope.f=true;
+            $scope.f=false;
             document.querySelector("#content").style.marginLeft="50%";
         }else {
-            $scope.f=false;
+            $scope.f=true;
             document.querySelector("#content").style.marginLeft=0;
         }
     }
@@ -21,7 +21,6 @@ ctrl.controller("latest",function ($scope,$http) {
         responseType:"json"
     }).then(function (res) {
         $scope.data=res.data.stories;
-
     })
 })
 // debugger
@@ -41,6 +40,7 @@ ctrl.controller("show",function ($scope,$http,$routeParams) {
         responseType:"json"
     }).then(function (res) {
         $scope.list=res.data;
+        console.log(res.data)
     })
 })
 ctrl.controller("themeList",function ($scope,$http,$routeParams) {

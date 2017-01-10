@@ -1,10 +1,29 @@
-<ul class="contents">
-    <li class="col-lg-4" ng-repeat="v in data">
-        <a href="#/show/{{v.id}}">
-            <figure>
-                <img src="{{v.images[0]}}" alt="">
-                <figcaption>{{v.title}}</figcaption>
-            </figure>
-        </a>
-    </li>
-</ul>
+<div class="mask">
+    <header>
+        <div class="top">
+            <div class="btn" ng-click="left()"></div>
+            <span>今日新闻</span>
+        </div>
+    </header>
+    <div class="banner swiper-container">
+        <div  ng-repeat="v in data.top_stories">
+            <a href="#/show/{{v.id}}" class="topImg swiper-slide" ng-style="{'background':'url({{v.image}}) no-repeat center center/cover'}">
+                <span class="topTitle">{{v.title}}</span>
+            </a>
+            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                <span class="swiper-pagination-bullet"></span>
+            </div>
+        </div>
+    </div>
+    <ul class="content">
+        <li class="col-lg-4" ng-repeat="v in data.stories">
+            <a href="#/show/{{v.id}}">
+                <figure>
+                    <div class="img" ng-style="{'background':'url({{v.images[0]}}) no-repeat center center/cover'}">
+                    </div>
+                    <figcaption>{{v.title}}</figcaption>
+                </figure>
+            </a>
+        </li>
+    </ul>
+</div>
