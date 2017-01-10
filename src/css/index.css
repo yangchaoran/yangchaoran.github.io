@@ -304,3 +304,9 @@ nav {
     background: url(../img/me.png)left top/cover;
     margin: 0 auto;
 }
+.minNav{
+    display: none;
+}
+.progress{
+    display: none !important;
+}
