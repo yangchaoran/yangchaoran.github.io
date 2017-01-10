@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    .jpg{
+        width:100px;
+        height:100px;
+        background:rgba(255,255,0,0.5);
+        text-align: center;
+        line-height: 100px;
+        font-size: 50px;
+        user-select: none;
+        -webkit-user-select: none;
+        cursor: pointer;
+    }
+    input{
+        float: none;
+    }
+    .box{
+        width:300px;
+        height:300px;
+        border:1px solid red;
+        display: none;
+    }
+    .active{
+        display: block;
+    }
+</style>
+<body>
+<div class="jpg">+</div>
+<input type="file" name="file">
+<div class="box"></div>
+</body>
+<script src="js/jquery.js"></script>
+<script>
+    $(".jpg").click(function(){
+        $(".jpg>img").display="none";
+        $(".box").toggleClass("active");
+    });
+    document.ondrop=function(e){
+        e.preventDefault();
+    };
+    var box=$(".box")[0];
+    console.log(box);
+    box.ondragover=function(e){
+        e.preventDefault();
+    };
+    var fileobj;
+    box.ondrop=function(e){
+        fileobj=e.dataTransfer.files[0];
+        var fr=new FileReader();
+        fr.readAsDataURL(fileobj);
+        fr.onloadend=function(){
+            $("<img>").attr("src",fr.result).appendTo(".box");
+            $(".box").removeClass("active");
+        };
+    };
+    $("input[type='button']").click(function(){
+        var fd=new FormData();
+        fd.append("upload",fileobj);
+        var xhr=new XMLHttpRequest();
+        xhr.upload.onprogress=function(e){
+//            e.loaded  //加载完成量
+//            e.total   //
+        };
+    });
+</script>
+</html>

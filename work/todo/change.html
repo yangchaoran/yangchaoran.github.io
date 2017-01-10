@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head><!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="cookie.js"></script>
+</head>
+<style>
+    .box{
+        width:300px;
+        height:300px;
+        border:1px solid red;
+        font-size: 10px;
+    }
+    .page{
+        width:100px;
+        height:30px;
+        background:red;
+        float: left;
+        text-align: center;
+        line-height: 30px;
+    }
+</style>
+<body>
+<label>字体颜色<input type="color" name="fc"></label>
+<input type="color" value="#ffffff" name="bc">
+<input type="number" value="12" name="fs" min="10" max="20" step="2">
+<div class="box">
+    code标签：
+    放一段代码的
+    行内标签
+    meter：表示数值的
+    max最大值，min最小值code标签：
+    放一段代码的
+    行内标签
+    meter：表示数值的
+    max最大值，min最小值code标签：
+    放一段代码的
+    行内标签
+    meter：表示数值的
+    max最大值，min最小值code标签：
+    放一段代码的
+    行内标签
+    meter：表示数值的
+    max最大值，min最小值
+</div>
+<div class="page">1</div>
+<div class="page">2</div>
+<div class="page">3</div>
+</body>
+<script>
+    var fc=document.querySelector("[name=fc]");
+    var bc=document.querySelector("[name=bc]");
+    var fs=document.querySelector("[name=fs]");
+    var content=document.querySelector(".box");
+    var fontcolor=getCookie("fc")||"#000000";
+    var bgcolor=getCookie("bc")||"#ffffff";
+    var fontsize=getCookie("fs")||"12";
+    content.style.cssText="color:"+fontcolor+";background-color:"+bgcolor+";font-size:"+fontsize+"px";
+    fc.value=fontcolor;
+    bc.value=bgcolor;
+    fs.value=fontsize;
+    fc.onchange=function(){
+        var newcolor=fc.value;
+        content.style.color=newcolor;
+        setCookie("fc",newcolor);
+//        console.log(getCookie("fc"))
+    }
+    bc.onchange=function(){
+        var newbgcolor=bc.value;
+        content.style.background=newbgcolor;
+        setCookie("bc",newbgcolor);
+    }
+    fs.onchange=function(){
+        var newsize=fs.value;
+        content.style.fontSize=newsize+"px";
+        setCookie("fs",newsize)
+    }
+
+</script>
+</html>
+<body>
+
+</body>
+</html>

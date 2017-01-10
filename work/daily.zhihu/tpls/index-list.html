@@ -1,0 +1,11 @@
+<ul class="content">
+    <li class="col-lg-4" ng-repeat="v in data">
+        <a href="#/show/{{v.id}}">
+            <figure>
+                <div class="img" ng-style="{'background':'url({{v.images[0]}}) no-repeat center center/cover'}">
+                </div>
+                <figcaption>{{v.title}}</figcaption>
+            </figure>
+        </a>
+    </li>
+</ul>

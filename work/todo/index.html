@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/basic.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+<style>
+    body,html{
+        height:100%;
+    }
+    .box{
+        width:80%;
+        height:100%;
+        padding:0.1rem 0;
+        background: url(img/1.jpg) no-repeat center center/cover;
+        margin:0 auto;
+    }
+    .container{
+        width:80%;
+        height:auto;
+        background: #fff;
+        opacity: 0.8;
+    }
+    .top{
+        width:80%;
+        /*height:50px;*/
+        /*background: rgba(249, 255, 124, 0.8);*/
+        margin:0 auto;
+        line-height: 50px;
+        text-align: center;
+    }
+    .top input{
+        border:0;
+
+    }
+    .table{
+        width:80%!important;
+        margin:0 auto;
+    }
+    tr{
+        width:100%;
+    }
+    .not2{
+        width:20%;
+        height:30px;
+        display: flex;
+    }
+    .not1{
+        width:0.3rem!important;
+        height:0.1rem;
+        border: 1px solid red;
+    }
+    label{
+        display: block;
+        width:50%;
+        text-align: center;
+    }
+    .neir{
+        width: 60%;
+        text-align: center;
+        background:red;
+        height:auto;
+    }
+    .not{
+        width:60%;
+        height:100%;
+    }
+    .not tr{
+        width:100%;
+        height:100%;
+        display: flex;
+    }
+    .done{
+        width:60%;
+        height:100%;
+    }
+    .done tr{
+        width:100%;
+        height:100%;
+        display: flex;
+    }
+    .content{
+        width:60%;
+    }
+    .sub1,.clear1{
+        width:10%!important;
+    }
+    .top1{
+        width:100%;
+        height:auto;
+        display: none;
+    }
+    @media screen and (max-width:750px){
+        .top{display: none;}
+        .top1{
+            display: block;
+        }
+        .top1 .content{width:95%;margin:0 auto;text-align: center}
+        .top1 .sub{width:50%;float: left}
+        .top1 .clear{width:50%;float: left}
+    }
+    @media screen and (min-width:500px){
+        .min-1{width:8.33333% }
+        .min-2{width:16.66667% }
+        .min-3{width:25% }
+        .min-4{width:33.33333% }
+        .min-5{width:41.66667% }
+        .min-6{width:50% }
+        .min-7{width:58.33333% }
+        .min-8{width:66.66667% }
+        .min-9{width:75% }
+        .min-10{width:83.33333% }
+        .min-11{width:91.66667% }
+        .min-12{width:100% }
+    }
+    @media screen and (min-width:750px){
+        .mid-1{width:8.33333% }
+        .mid-2{width:16.66667% }
+        .mid-3{width:25% }
+        .mid-4{width:33.33333% }
+        .mid-5{width:41.66667% }
+        .mid-6{width:50% }
+        .mid-7{width:58.33333% }
+        .mid-8{width:66.66667% }
+        .mid-9{width:75% }
+        .mid-10{width:83.33333% }
+        .mid-11{width:91.66667% }
+        .mid-12{width:100% }
+    }
+    @media screen and (min-width:1000px){
+        .max-1{width:8.33333% }
+        .max-2{width:16.66667% }
+        .max-3{width:25% }
+        .max-4{width:33.33333% }
+        .max-5{width:41.66667% }
+        .max-6{width:50% }
+        .max-7{width:58.33333% }
+        .max-8{width:66.66667% }
+        .max-9{width:75% }
+        .max-10{width:83.33333% }
+        .max-11{width:91.66667% }
+        .max-12{width:100% }
+    }
+    @media screen and (min-width:1200px){
+        .big-1{width:8.33333% }
+        .big-2{width:16.66667% }
+        .big-3{width:25% }
+        .big-4{width:33.33333% }
+        .big-5{width:41.66667% }
+        .big-6{width:50% }
+        .big-7{width:58.33333% }
+        .big-8{width:66.66667% }
+        .big-9{width:75% }
+        .big-10{width:83.33333% }
+        .big-11{width:91.66667% }
+        .big-12{width:100% }
+    }
+</style>
+<body>
+<div class="box">
+<div class="container">
+    <div class="top navbar-inner">
+        <input type="text" placeholder="请输入代办项" class="content label-success">
+        <input type="button" value="添加" class="sub sub1">
+        <input type="button" value="清除" class="clear clear1">
+    </div>
+    <div class="top1">
+        <input type="text" placeholder="请输入代办项" class="content">
+        <input type="button" value="添加" class="sub sub2">
+        <input type="button" value="清除" class="clear clear2">
+    </div>
+    <table class="table">
+        <tr class="one">
+            <td colspan="3">未完成</td>
+        </tr>
+        <tr class="not">
+        </tr>
+        <tr>
+            <td colspan="3">已完成</td>
+        </tr>
+        <tr class="done">
+        </tr>
+    </table>
+</div>
+</div>
+</body>
+<script>
+    function getData(){
+        var arr=localStorage.todo?JSON.parse(localStorage.todo):[];
+        return arr;
+    }
+    function saveData(data){
+        localStorage.todo=JSON.stringify(data)
+    }
+    $(".sub").click(function(){
+        var value;
+        if( $(".top").css("display")=='none' ) {
+            value=$(".content:last").val();
+        }else{
+            value=$(".content:first").val();
+        }
+        if(value==""){
+            return;
+        }
+        var data=getData();
+        data.push({content:value,done:false});
+        saveData(data);
+        rewrite();
+        $(".content").val("");
+    });
+    $("table").delegate(".del","click",function(){
+        var index=$(this).attr("id");
+        var data=getData();
+        data.splice(index,1);
+        saveData(data);
+        rewrite();
+    });
+    function changestate(){
+        var data=getData();
+        var index=$(this).parent().parent().attr("index");
+        console.log(index);
+        data[index].done=!data[index].done;
+        saveData(data);
+        rewrite();
+    }
+    $(".neir").change(function(){
+        alert(1)
+    })
+    function rewrite() {
+        $('.not,.done').empty();
+        var data=getData();
+        $.each(data,function(index,value){
+            if(value.done){
+                $("<tr>").attr("index",index).html("<td class='not2'><input type='checkbox' onfocus='changestate.call(this)' class='not1'><label for=''>"+index+"</label></td><td contenteditable='true' class='neir'>"+value.content+"</td><td class='del' id='index'>删除</td>").appendTo(".done");
+            }else{
+                $("<tr>").attr("index",index).html("<td class='not2'><input type='checkbox' onfocus='changestate.call(this)' class='not1'><label for=''>"+index+"</label></td><td contenteditable='true' class='neir'>"+value.content+"</td><td class='del' id='index'>删除</td>").appendTo(".not");
+            }
+        });
+    }
+//    var neir=$("#index")
+    console.log($(".neir:first").html());
+    rewrite();
+    $(".clear").click(function(){
+        var data=getData();
+        data=[];
+        saveData(data);
+        rewrite();
+    })
+</script>
+</html>

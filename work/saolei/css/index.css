@@ -1,0 +1,65 @@
+
+html,body{
+		height: 100%;
+		transform-style:preserve-3d;
+		background: linear-gradient(to bottom,blue,#fff);
+		overflow: hidden;
+	}
+	.scene{
+		transform:perspective(800px) rotatex(30deg);
+		width: 500px;
+		height: 500px;
+		margin: 0 auto;
+		border-top: 1px solid #000;
+		border-left: 1px solid #000;
+		box-shadow: 5px 5px 5px #aaa;
+	}
+	.block{
+		width: 49px;
+		height: 49px;
+		border-right: 1px solid #000;
+		border-bottom: 1px solid #000;
+		float: left;
+		background: #f2ff72;
+		box-shadow: 0 0 5px #fff inset;
+		cursor: pointer;
+		border-radius: 4px;
+		position: relative;
+	}
+	.show{
+		background: url(images/1.jpg) no-repeat center;
+		background-size: 80px ; 
+	}
+	.num{
+		background: #fff;
+		text-align: center;
+		line-height: 50px;
+		font-size: 30px;
+		color: #000;
+	}
+	.time{
+		width: 100px;
+		height: 30px;
+		border: 1px solid red;
+		position: fixed;
+		top: 30px;
+		right: 20px;
+		text-align: center;
+		line-height: 30px;
+	}
+	.flagbox{
+		width: 100px;
+		height: 30px;
+		border: 1px solid red;
+		position: fixed;
+		top: 90px;
+		right: 20px;
+		text-align: center;
+		line-height: 30px;
+		background: url(images/q.png) no-repeat left;
+		background-size: 30px ; 
+	}
+	.flag{
+		background: url(images/q.jpg) no-repeat center;
+		background-size: 50px ; 
+	}

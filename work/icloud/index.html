@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/sevice.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="less/index.css">
+</head>
+<body>
+    <div ng-controller="c" class="container">
+        <div class="zhao" ng-show="ff" ng-click="ff=!ff"></div>
+        <div class="left">
+            <div class="left-top">
+                <div class="left-logo"></div>
+                <div class="left-tix">提醒事项</div>
+                <div class="left-add" ng-click="add()"></div>
+            </div>
+            <div class="left-jh">
+                <div class="left-clock"><div></div></div>
+                <div class="left-yjh">已计划</div>
+            </div>
+            <ul>
+                <li ng-repeat="v in arr track by $index" ng-click="change($index)" ng-style="{background:index==$index?'#2d2d23':''}">
+                    <div class="left-color" ng-style="{background:v.color}"></div>
+                    <div class="left-nei">{{v.title}}</div>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <div class="right-input">
+                    <div class="right-search"></div><input type="text" placeholder="搜索所有选项"></div>
+            </div>
+            <div class="right-center" style="color:{{now.color}}">
+                <div class="right-center-nei">{{now.title}}</div>
+                <div class="right-select" ng-click="xuanze()" ng-style="{color:now.color}">选项</div>
+            </div>
+            <div class="right-wan" ng-click="jiantou()">
+                <div class="right-jian"></div><div class="right-jian-wu"></div>
+                <div class="right-yi" ng-model="num">已完成:{{num}}项</div>
+                <div class="right-clear" style="color:{{now.color}}">清除已完成事项</div>
+            </div>
+            <ul ng-show="jianflag">
+                <div class="day"></div>
+                <li ng-repeat="z in now.list|filter:{'$':'true'}" ng-click="bg($index,z)" ng-style="{borderColor:i==$index&&ii?arr[index].color:''}">
+                    <div class="zhe" ng-style="{backgroundColor:i==$index&&ii?arr[index].color:'',opacity:i==$index&&ii?0.3:0}"></div>
+                    <div class="list-top">
+                        <div class="list-top-yuan" ng-style="{backgroundColor:now.color,borderColor:now.color}" ng-click="done(z)">
+                        </div>
+                        <div class="day-title" contenteditable="true"><input
+                                type="text" value="{{z.title}}" ng-blur="titlechange($event,z)"></div>
+                    </div>
+                    <div class="list-bottom"></div>
+                </li>
+            </ul>
+            <!--<hr>-->
+            <ul style="margin-top:60px;border-top-width:0;">
+               <li ng-repeat="z in now.list|filter:{'$':'false'}" ng-click="bg($index,z)" ng-style="{borderColor:i==$index&&!ii?arr[index].color:''}">
+                    <div class="zhe" ng-style="{backgroundColor:i==$index&&!ii?arr[index].color:'',opacity:i==$index&&!ii?0.3:0}"></div>
+                    <div class="list-top">
+                        <div class="list-top-yuan" ng-style="{borderColor:now.color}" ng-click="done(z)">
+                        </div>
+                        <div class="day-title" contenteditable="true"><input
+                                type="text" value="{{z.title}}" ng-blur="titlechange($event,z)"></div>
+                    </div>
+                    <div class="list-bottom"></div>
+                </li>
+            </ul>
+            <div class="tian" ng-click="new()">新事项...</div>
+            <div class="xuanze" ng-show="ff">
+                <div class="border">
+                    <input type="text"  ng-style="{color:cColor}" ng-model="cTitle">
+                    <div class="border-color">列表颜色</div>
+                    <ul>
+                        <li ng-repeat="a in colors" ng-click="color($index)" ng-style="{backgroundColor:a,borderColor:a==cColor?a:''}"></li>
+                    </ul>
+                    <div class="border-button">
+                        <label href="" class="del" ng-click="del()">删除</label>
+                        <label href="" class="cancel" ng-click="cancel()">取消</label>
+                        <span>|</span>
+                        <label href="" class="jia" ng-click="add1()">添加</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

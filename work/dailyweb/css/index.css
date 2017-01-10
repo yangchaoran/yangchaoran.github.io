@@ -1,0 +1,157 @@
+body,
+html {
+  height: 100%;
+  background: #F9F9F9;
+}
+/*top*/
+ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.top{
+  width:100%;
+  height:30px;
+  background: #069DD0;
+}
+.top span{
+  width:60px;
+  margin-left:calc(50% - 60px);
+  height:30px;line-height:1.5;
+  color: #fff;
+  text-align: center;
+}
+.btn{
+  width:30px;
+  height:30px;
+  background: #f0f6ff;
+  position: relative;
+  z-index: 9999;
+}
+/*banner*/
+.banner{
+  width:100%;
+  height:300px;
+  background: #5f17aa;
+}
+.banner li{
+  height:100%;
+}
+.banner li a{
+  width:100%;
+  height:100%;
+  display: block;
+  background: url("../img/1.jpg") no-repeat center center/cover;
+}
+#nav{
+  width:50%;
+  height:100%;
+  float: left;
+  background: #000;
+}
+#content{
+  height:100%;
+}
+header{
+
+}
+nav {
+  width: 50%;
+  height: 100%;
+  position: fixed;
+  left:0;
+  top:0;
+  z-index: 1;
+  background: #fff;
+}
+nav .logo {
+  width: 100px;
+  height: 100px;
+}
+.themes {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100% - 150px);
+  background: #000;
+}
+.themes li{
+  width:100%;
+  height:calc(100%/12);
+}
+.themes .theme {
+  font-size: 20px;
+  text-align: center;
+  line-height: 2;
+}
+.bottom{
+  height:50px;
+}
+.container-flexed-width {
+  width: 960px;
+  margin: 0 auto;
+ 
+}
+.content {
+  display: flex;
+  flex-flow:row wrap;
+  justify-content: space-between;
+}
+.content li {
+  padding: 20px;
+  background: #fff;
+  border-radius: 2px;
+}
+.content li a {
+  display: block;
+  position: relative;
+}
+.content li figure img {
+  display: block;
+  max-width: 100%;
+  height: 260px;
+  opacity: 1;
+  margin-bottom: 1em;
+}
+article{
+  width:100%;
+  height:auto;
+}
+.headline{
+  position: relative;
+  max-height: 375px;
+  overflow: hidden;
+}
+.show{
+  width:100%;
+}
+.show li{
+  margin:5px 0 ;
+}
+.show li a{
+  display: block;
+  overflow: hidden;
+  border-bottom:1px solid #eee;
+  padding-bottom: 5px;
+}
+.show li figure{
+  width:100%;
+  height:100%;
+}
+.show li figure img{
+  float: right;
+  width: 100px;
+  height: 100px;
+}
+.show li figure figcaption{
+  display: inline-block;
+  float: left;
+  word-wrap: break-word;
+  word-break: normal;
+  width: 60%;
+  color: #000;
+}
+footer{
+  text-align: center;
+}

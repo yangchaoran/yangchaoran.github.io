@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery.js"></script>
+</head>
+<style>
+    td{
+        text-align: center!important;
+    }
+    .del{
+        cursor: pointer;
+    }
+</style>
+<body>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>性别</td>
+            <td>成绩</td>
+            <td>操作</td>
+        </tr>
+        <!--<tr>-->
+            <!--<td contenteditable="true">aa</td>-->
+            <!--<td contenteditable="true">23</td>-->
+            <!--<td contenteditable="true">男</td>-->
+            <!--<td contenteditable="true">90</td>-->
+            <!--<td class="del">删除</td>-->
+        <!--</tr>-->
+        <tr id="last">
+            <td colspan="5">
+                <input type="button" value="+" class="btn btn-success btn-md add">
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+<script>
+    rewrite();
+    function getData(){
+        var arr=localStorage.student?JSON.parse(localStorage.student):[];
+        return arr;
+    }
+    function saveData(data){
+        localStorage.student=JSON.stringify(data)
+    }
+    function rewrite(){
+        var arr = getData();
+        $('tr:not(tr:first,tr:last)').remove();
+        $.each(arr,function (index,value) {//value是一个对象，，[{name：1，age：2}]
+            $("<tr>").attr("index",index).html('<td contenteditable="true" data-role="name">'+value.name+'</td><td contenteditable="true" data-role="age">'+value.age+'</td><td contenteditable="true" data-role="sex">'+value.sex+'</td><td contenteditable="true" data-role="grade">'+value.grade+'</td><td class="del" id="index">删除</td>').insertBefore("#last");
+        })
+    }
+    console.log($("#index").html())
+    rewrite();
+    $(".add").click(function(){
+        var arr=getData();
+        arr.push({name:"",age:"",sex:"",grade:""});
+        saveData(arr);
+        rewrite();
+        localStorage.student=JSON.stringify(arr);
+    });
+    $("table").delegate(".del","click",function(){
+        var index=$(this).attr("id");
+        var data=getData();
+        data.splice(index,1);
+        saveData(data);
+        rewrite();
+    });
+    $("table").on("blur","[contenteditable=true]",function(){
+        var data=getData();
+        var index=$(this).parent().attr("index");
+        var attr=$(this).attr("data-role");
+        var value=$(this).html();
+        data[index][attr]=value;
+        saveData(data);
+        console.log(data);
+//        rewrite();
+    })
+</script>
+</html>

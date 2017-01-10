@@ -1,0 +1,13 @@
+
+<article ng-controller="themeList" class="wenzhang">
+    <div class="bg" ng-style="background:url({{ztlist.background}}) no-repeat center center/cover"></div>
+    <div class="description">
+        {{ztlist.description}}
+    </div>
+    <div  ng-repeat="v in ztlist.stories" >
+        <a href="#/show/{{v.id}}">
+            {{v.title}}
+        </a>
+        <hr>
+    </div>
+</article>

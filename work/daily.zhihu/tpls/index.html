@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="never">
+    <title>知乎日报</title>
+    <link rel="stylesheet" href="css/baidu.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body ng-controller="c">
+    <header>
+
+    </header>
+    <nav ng-controller="themes">
+        <div class="logo"></div>
+        <ul class="themes" ng-controller="themes">
+            <hello></hello>
+        </ul>
+    </nav>
+    <section>
+        <div id="banner">
+            <div class="container-flexed-width banner" ng-controller="banner">
+                <div class="wrap" ></div>
+                <!--ng-style="{'background','url({{thumb}} )'}"-->
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-flexed-width" >
+            <div class="row " ng-view >
+
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="center-block">
+                    &copy; 2016 zhihu
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/filter.js"></script>
+<script src="js/directive.js"></script>
+<!--<script src="http://cdn.bootcss.com/angular.js/1.5.0/angular-sanitize.min.js"></script>-->
+<script src="js/index.js"></script>
+</html>

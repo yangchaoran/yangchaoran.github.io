@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="never">
+    <title>知乎日报</title>
+    <link rel="stylesheet" href="css/baidu.css">
+    <link rel="stylesheet" href="http://news-at.zhihu.com/css/news_qa.auto.css?v=4b3e3">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body ng-controller="c">
+<header>
+    <div class="head">
+        <div class="logo">
+            <a href="/">知乎日报</a>
+        </div>
+        <div class="top-nav-link">
+            <a href="javascript">App下载</a>
+            <a href="javascript">浏览内容</a>
+        </div>
+    </div>
+</header>
+<nav id="nav">
+            <ul class="themes" ng-controller="themes">
+                <li  ng-repeat="v in zhuti">
+                    <a href="#/theme/{{v.id}}">
+                        {{v.name}}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+<section id="content">
+   <ul class="show" ng-view>
+
+   </ul>
+</section>
+</body>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/filter.js"></script>
+<script src="js/directive.js"></script>
+<script src="http://cdn.bootcss.com/angular.js/1.5.0/angular-sanitize.min.js"></script>
+<script src="js/index.js"></script>
+</html>

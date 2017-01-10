@@ -1,0 +1,114 @@
+var icloud=angular.module("ctrl",[]);
+var colors=['#FF8A00','#F7C700','#CD76E2','#62DA37','#1DB2F8','#A1835D','#FF2A6B'];
+
+icloud.controller("c",function($scope,$filter,localS){
+    $scope.arr=localS.getdata();
+    console.log($scope.arr)
+    $scope.index=0;
+    $scope.colors=colors;
+    $scope.ff=false;
+    $scope.jianflag=false;
+    //添加
+    $scope.add=function(){
+        $scope.index=$scope.arr.length;
+        var id=$scope.arr[$scope.index-1].id+1;
+        var i=$scope.arr.length+1;
+        $scope.arr.push({id:id,title:'列表'+i,color:colors[i%7],list:[{}]});
+        $scope.now=$scope.arr[$scope.index];
+        $scope.color();
+        localS.savedata($scope.arr)
+    };
+    //左边列表
+    $scope.change=function(v){
+        $scope.index=v;
+        $scope.now=$scope.arr[$scope.index];
+    };
+    $scope.now=$scope.arr[$scope.index];
+    console.log($scope.now)
+    //搜索框
+    $scope.xuanze=function(){
+        $scope.ff=!$scope.ff;
+        var zz=$scope.arr[$scope.index];
+        console.log(zz)
+        $scope.cTitle=zz.title;
+        $scope.cColor=zz.color;
+    }
+    $scope.color=function(a){
+        $scope.cColor=$scope.colors[a]
+        // $scope.cTitle
+    };
+    // 添加
+    $scope.add1=function(){
+        $scope.arr[$scope.index].color=$scope.cColor;
+        $scope.arr[$scope.index].title=$scope.cTitle;
+        $scope.ff=false;
+        localS.savedata($scope.arr)
+    };
+    //取消
+    $scope.cancel=function(){
+        $scope.ff=false;
+    };
+    //删除
+    $scope.del=function(){
+        $scope.arr.splice($scope.index,1);
+        if($scope.index==$scope.arr.length){
+            $scope.index=0;
+        }
+        $scope.ff=false;
+        localS.savedata($scope.arr)
+    };
+    //箭头
+    $scope.jiantou=function(){
+        $scope.jianflag=!$scope.jianflag;
+        if($scope.jianflag){
+            document.querySelector(".right-jian-wu").style.display="block";
+            document.querySelector(".right-jian").style.display="none";
+        }else{
+            document.querySelector(".right-jian-wu").style.display="none";
+            document.querySelector(".right-jian").style.display="block";
+        }
+    };
+    //点击圆点
+    $scope.done=function(v){
+        if(v.done==true){
+            v.done=false;
+        }else{
+            v.done=true;
+        }
+        $scope.fil();
+        localS.savedata($scope.arr)
+    }
+    //过滤
+    $scope.fil=function(){
+        $scope.num=$filter("filter")($scope.arr[$scope.index].list,{'done':'true'}).length;
+    }
+    $scope.fil();
+    $scope.$watch("now",function(){
+        $scope.fil();
+    })
+    $scope.i=-1;
+    $scope.ii=false;
+    //背景图片
+    $scope.bg=function(z,com){
+        if(com.done){
+            $scope.ii=true;
+        }
+        if(!com.done){
+            $scope.ii=false;
+        }
+        $scope.i=z;
+        localS.savedata($scope.arr)
+    }
+    //新事项
+    $scope.new=function(){
+        console.log($scope.arr[$scope.index].list);
+        $scope.arr[$scope.index].list.push({title:"",done:false})
+    }
+
+    //  内容改变
+    $scope.titlechange=function(a,b){
+        b.title=a.target.value;
+        localS.savedata($scope.arr)
+        console.log(a)
+    }
+});
