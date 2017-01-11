@@ -21,6 +21,7 @@ ctrl.controller("latest",function ($scope,$http) {
         responseType:"json"
     }).then(function (res) {
         $scope.data=res.data.stories;
+        console.log(res)
     })
 })
 // debugger
@@ -31,6 +32,7 @@ ctrl.controller("themes",function ($scope,$http,$routeParams) {
         responseType:"json"
     }).then(function (res) {
         $scope.zhuti=res.data.others;
+        console.log(res)
     })
 })
 ctrl.controller("show",function ($scope,$http,$routeParams) {
