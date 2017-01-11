@@ -1,0 +1,139 @@
+@media print {
+    .visible-print {
+        display: block
+    }
+    .invisible-print {
+        display: none
+    }
+    .container {
+        width: 1000px;
+        margin-top: 0;
+        box-shadow: none
+    }
+    body {
+        background: 0 0
+    }
+    aside, footer {
+        display: none
+    }
+}
+@media screen and (max-width: 720px){
+    header{
+        background: #070B0C;
+    }
+    .container{
+        padding:0;
+    }
+    .top{
+        height: auto!important;
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+        padding: 20px 30px;
+        margin: 0 auto;
+        background: #070B0C;
+    }
+}
+.top{
+    height: 220px;
+    padding: 20px 30px;
+    margin: 0 auto;
+    background: #070B0C;
+}
+section{
+    height:920px;
+    /*background: url(../img/skills.png);*/
+}
+.footer{
+    height:154px;
+    background: #3B4A4F;
+}
+.information{
+    float: left;
+    color: #fff;
+}
+.contact{
+    float: right;
+    color: #fff;
+}
+.contact p a{
+    color: #fff;
+}
+#wrapper{
+    padding:20px;
+    height:auto;;
+    /*background: url("code.png")#fff center;*/
+    background-size:cover;
+    border:1px solid #888;
+}
+
+.sec-title {
+    float: left;
+    padding: 0;
+    margin: 0 0 0 10px;
+
+}
+.sec-title-ch {
+    font-size: 20px;
+    float: left;
+    font-weight: 700;
+}
+.sec-title-en {
+    font-size: 16px;
+    float: left;
+    clear: left;
+    color: teal;
+    font-variant: small-caps;
+    font-weight: 700;
+}
+.timeline-title {
+    padding: 3px 10px 3px 26px;
+    color: #fff;
+    background-color: #eb3e38;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.33;
+}
+.timeline-title span,.education-time,.contact p,.contact p i{
+    color: #fff;
+}
+.sec-little{
+    height:30px;
+    position: relative;
+    margin-left: 30px;
+
+}
+.ziti{
+    width: 20px;
+    height: 20px;
+    font-size: 43px;
+    position: absolute;
+    left: -37px;
+}
+article{
+    padding:5px 140px;
+    margin:0 auto;
+}
+.content{
+    background: url(../1.png);
+    background: rgba(27, 73, 90, 0.88);
+    overflow: hidden;
+}
+.text h3{
+    color: #B2F93A;
+}
+.text h4{
+    margin-left: 50px;
+    color: rgb(34, 255, 73);
+    font-weight: 700;
+}
+.text  p{
+    margin-left:50px;
+    color: #00D8FF;
+    font-weight: 600;
+}
+.qr{
+    float: right;
+    height: 100%;
+}
